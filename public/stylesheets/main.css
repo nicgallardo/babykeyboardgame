@@ -6,7 +6,7 @@ body {
   width: 1000px;
   height: 400px;
   margin: 0 auto;
-  background-color: #1F6666;
+  /*background-color: #1F6666;*/
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   text-align: center;
@@ -16,7 +16,7 @@ body {
   width: 1000px;
   height: 100px;
   margin: 0 auto;
-  background-color: #AA8F34;
+  /*background-color: #AA8F34;*/
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   text-align: center;
