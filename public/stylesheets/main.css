@@ -20,14 +20,15 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   text-align: center;
-
 }
+
 .keys {
   width: 100px;
   height: 100px;
   background-color: red;
   float: left;
 }
+
 #input {
   border: 0px;
   background-color: black;
@@ -42,6 +43,7 @@ body {
   transform: translateY(-50%);
   align-items: center;
 }
+
 #output {
   border-radius: 50px;
   background-color: black;
@@ -53,6 +55,7 @@ body {
   margin: 0 auto;
   color: white;
 }
+
 #outputText {
   color: white;
   font-family: 'Merriweather Sans', sans-serif;

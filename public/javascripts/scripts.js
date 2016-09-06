@@ -49,7 +49,6 @@ function getValues(val) {
 
 function emptyDom(){
   var elements = [
-    "#input",
     "#output-text",
     "#output-attr-text",
     "#output-img"
@@ -64,23 +63,22 @@ function appendAttrs(attrObj){
   $("#output-img").append('<img src="'+attrObj.attr.img+'" width="200px">');
 };
 
-function playAudio(attrObj){
-  var audio = new Audio(attrObj.attr.audio);
+function playAudio(path){
+  var audio = new Audio(path);
   audio.play();
-
 };
 
 $(document).ready(function(){
-  var test = [];
-  $("#input").keyup(function(){
+  $(document).keypress(function(e){
     emptyDom();
-    var attrs = getValues($("#input").val().toUpperCase())
-    appendAttrs(attrs);
-    playAudio(attrs);
-    document.getElementById("input").blur();
-  });
-
-  $("#input").click(function(){
-    $("#input").val("")
+    var entryVal = e.key.toUpperCase();
+    var result = entryVal.match(/[a-zA-Z]/);
+    if(result){
+      var attrs = getValues(entryVal);
+      appendAttrs(attrs);
+      playAudio(attrs.attr.audio);
+    }else{
+      playAudio('/audio/ding.mp3');
+    }
   })
 });
