@@ -3,7 +3,8 @@ var attrs = {
     item: [
       {
         value: 'Apple',
-        img: '/images/apple.gif'
+        img: '/images/apple.gif',
+        audio: '/audio/apple.mp3',
       },
     ]
   },
@@ -40,10 +41,184 @@ var attrs = {
       },
     ]
   },
+  F: {
+    item: [
+      {
+        value: 'Farm',
+        img: '/images/farm.gif'
+      },
+    ]
+  },
+  G: {
+    item: [
+      {
+        value: 'Gold',
+        img: '/images/gold.gif'
+      },
+    ]
+  },
+  H: {
+    item: [
+      {
+        value: 'Hat',
+        img: '/images/hat.gif'
+      },
+    ]
+  },
+  I: {
+    item: [
+      {
+        value: 'Igloo',
+        img: '/images/igloo.gif'
+      },
+    ]
+  },
+  J: {
+    item: [
+      {
+        value: 'Jewell',
+        img: '/images/jewell.gif'
+      },
+    ]
+  },
+  K: {
+    item: [
+      {
+        value: 'Kite',
+        img: '/images/kite.gif'
+      },
+    ]
+  },
+  L: {
+    item: [
+      {
+        value: 'Light',
+        img: '/images/light.gif'
+      },
+    ]
+  },
+  M: {
+    item: [
+      {
+        value: 'Moon',
+        img: '/images/moon.gif'
+      },
+      {
+        value: 'Monkey',
+        img: '/images/monkey.gif'
+      },
+    ]
+  },
+  N: {
+    item: [
+      {
+        value: 'Night',
+        img: '/images/night.gif'
+      },
+    ]
+  },
+  O: {
+    item: [
+      {
+        value: 'Open',
+        img: '/images/open.gif'
+      },
+    ]
+  },
+  P: {
+    item: [
+      {
+        value: 'Penguine',
+        img: '/images/penguine.gif'
+      },
+    ]
+  },
+  Q: {
+    item: [
+      {
+        value: 'Quiet',
+        img: '/images/quiet.gif'
+      },
+    ]
+  },
+  R: {
+    item: [
+      {
+        value: 'Rainbow',
+        img: '/images/rainbow.gif'
+      },
+    ]
+  },
+  S: {
+    item: [
+      {
+        value: 'Star',
+        img: '/images/star.gif'
+      },
+    ]
+  },
+  T: {
+    item: [
+      {
+        value: 'Triangle',
+        img: '/images/triangle.gif'
+      },
+    ]
+  },
+  U: {
+    item: [
+      {
+        value: 'Umbrella',
+        img: '/images/umbrella.gif'
+      },
+    ]
+  },
+  V: {
+    item: [
+      {
+        value: 'Volcano',
+        img: '/images/volcano.gif'
+      },
+    ]
+  },
+  W: {
+    item: [
+      {
+        value: 'Walrus',
+        img: '/images/walrus.gif'
+      },
+    ]
+  },
+  X: {
+    item: [
+      {
+        value: 'Xylophone',
+        img: '/images/xylophone.gif'
+      },
+    ]
+  },
+  Y: {
+    item: [
+      {
+        value: 'Yarn',
+        img: '/images/yarn.gif'
+      },
+    ]
+  },
+  Z: {
+    item: [
+      {
+        value: 'Zoo',
+        img: '/images/zoo.gif'
+      },
+    ]
+  },
 };
 
 function getValues(val) {
-  var attr = attrs[val].item[attrs[val].item.length -1];
+  var random = Math.floor(Math.random() * attrs[val].item.length);
+  console.log(random);
+  var attr = attrs[val].item[random];
   return {value: val, attr: attr};
 };
 
@@ -56,7 +231,8 @@ function emptyDom(){
   for (var i = 0; i < elements.length; i++) {
     $(elements[i]).empty();
   };
-}
+};
+
 function appendAttrs(attrObj){
   $("#output-text").append('<h2>'+attrObj.value + " is for...</h2>");
   $("#output-attr-text").append('<h2>' + attrObj.attr.value + '</ h2>');
@@ -78,6 +254,7 @@ $(document).ready(function(){
       appendAttrs(attrs);
       playAudio(attrs.attr.audio);
     }else{
+      $("#output-text").append('<h2>Oops! Pick a letter!</h2>');
       playAudio('/audio/ding.mp3');
     }
   })
