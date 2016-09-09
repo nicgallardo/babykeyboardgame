@@ -52,9 +52,15 @@ var createQuiz = function(){
   unbinder();
   createAnti();
   $(selector).click(function(){
+        playAudio('/audio/ding.mp3');
     $(selector).remove();
     createQuiz();
   });
+};
+
+var playAudio = function(path){
+  var audio = new Audio(path);
+  audio.play();
 };
 
 var createAnti = function(){
@@ -62,13 +68,9 @@ var createAnti = function(){
   for (var i = 0; i < antiClicks.length; i++) {
     var selector = "." + antiClicks[i].classValue;
     $(selector).click(function(){
-      console.log('hit anit');
+      playAudio('/audio/buzzer.mp3');
     });
-  }
-  // $(selector).click(function(){
-  //   $(selector).remove();
-  //   createQuiz();
-  // });
+  };
 };
 
 $(document).ready(function(){
