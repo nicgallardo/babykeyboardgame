@@ -30,6 +30,9 @@ var game = {
     },
   ],
   callTest: function(){
+    if(game.colorState.length === 0){
+      return false;
+    };
     var random = Math.floor(Math.random() * game.colorState.length);
     var splicedVal = game.colorState.splice(random, 1);
     return splicedVal[0];
@@ -43,19 +46,24 @@ var game = {
   },
   createQuiz: function(){
     var currentValue = game.callTest();
-    $('.game-state').empty();
-    $('.game-state').append(
-      '<h1>Which block is ' + currentValue.color+ '?</h1>'
-    );
-    var selector = "." + currentValue.classValue;
-    game.unbinder();
-    game.createAnti();
-    $(selector).click(function(){
-      game.attempt(1, 1);
-      game.playAudio('/audio/ding.mp3');
-      $(selector).remove();
-      game.createQuiz();
-    });
+    if(currentValue === false){
+      game.endGame();
+      return;
+    }else{
+      $('.game-state').empty();
+      $('.game-state').append(
+        '<h1>Which block is ' + currentValue.color+ '?</h1>'
+      );
+      var selector = "." + currentValue.classValue;
+      game.unbinder();
+      game.createAnti();
+      $(selector).click(function(){
+        game.attempt(1, 1);
+        game.playAudio('/audio/ding.mp3');
+        $(selector).remove();
+        game.createQuiz();
+      });
+    }
   },
   playAudio: function(path){
     var audio = new Audio(path);
@@ -80,6 +88,12 @@ var game = {
     var percent = game.player.hits / game.player.attempts;
     dThreeRender(percent);
   },
+  endGame: function(){
+    $('.game-state').empty();
+    $('.game-state').append(
+      '<h1>Game Over</h1>'
+    );
+  }
 };
 
 game['colorState'] = game.colors.slice(),
@@ -101,7 +115,8 @@ $(document).ready(function(){
 
 
 var dThreeRender = function(newValue){
-    $('div#content').empty()
+    $('div#content').empty();
+
     var colors = {
         'pink': '#E1499A',
         'yellow': '#f0ff08',
