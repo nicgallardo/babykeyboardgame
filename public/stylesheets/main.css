@@ -61,3 +61,7 @@ body {
   font-family: 'Merriweather Sans', sans-serif;
   font-size: 300px;
 }
+
+.bg-white {
+  background-color: white !important;
+}

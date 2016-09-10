@@ -93,7 +93,7 @@ var game = {
     $('.game-state').append(
       '<h1>Game Over</h1>'
     );
-  }
+  },
 };
 
 game['colorState'] = game.colors.slice(),
@@ -105,14 +105,13 @@ $(document).ready(function(){
     );
   };
   $('.game-state').append(
-    '<button class="initiate-test" type="button">Begin Test</button>'
+    '<button class="initiate-test btn btn-default" type="button">Begin Test</button>'
   );
   $('.initiate-test').click(function(){
     game.createQuiz();
     dThreeRender(0.00);
   });
 });
-
 
 var dThreeRender = function(newValue){
     $('div#content').empty();

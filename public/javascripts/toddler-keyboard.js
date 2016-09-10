@@ -245,6 +245,22 @@ function playAudio(path){
 };
 
 $(document).ready(function(){
+  var contain = [];
+  for( var val in attrs){
+    var attr = '<td>' + val + '</td>';
+    contain.push(attr);
+  };
+  for (var i = 0; i < 5; i++) {
+    $('.alphabet').append('<tr>' + JSON.stringify(contain.splice(0, 6)) + '</tr>');
+  };
+
+  $( "td" ).click(function() {
+    emptyDom();
+    var attrs = getValues($(this).html());
+    appendAttrs(attrs);
+    playAudio(attrs.attr.audio);
+  });
+
   $(document).keypress(function(e){
     emptyDom();
     var entryVal = e.key.toUpperCase();
