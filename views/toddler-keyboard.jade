@@ -2,6 +2,7 @@ extends layout
 
 block content
   div(class="main")
+    link(rel="stylesheet" href="/stylesheets/toddler-keyboard.css")
     script(src="/javascripts/toddler-keyboard.js")
     div(class="row")
       div(id="output-text")
@@ -12,21 +13,15 @@ block content
     //- span(class="row alphabet")
   
   
-  
-  .table-responsive
-    table.table
-      thead
-        tr
-          th 
-          th 
-          th 
-          th 
-          th 
-          th
-      tbody(class="alphabet")
-        //- tr
-        //-   td 
-        //-   td 
-        //-   td 
-        //-   td 
-        //-   td
+  div(class="col-md-8 col-md-offset-2 text-center")
+    .table-responsive
+      table.table
+        thead
+          tr
+            th 
+            th 
+            th 
+            th 
+            th 
+            th
+        tbody(class="alphabet")

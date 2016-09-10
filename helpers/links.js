@@ -8,6 +8,11 @@ var links = [
     title: "Color Match",
     url: '/color-match',
     template: 'color-match'
+  },
+  {
+    title: "Match Game",
+    url: '/match-game',
+    template: 'match-game'
   }
 ];
 
